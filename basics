@@ -9,3 +9,27 @@ is_student = True
 print("Name:", name)
 print("Age:", age)
 print("Student:", is_student)
+
+# Taking user input
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+print("Hello", name, "you are", age, "years old.")
+
+# Different data types in Python
+a = 10          # int
+b = 3.14        # float
+c = "Python"    # string
+d = True        # boolean
+e = [1, 2, 3]   # list
+f = (4, 5, 6)   # tuple
+g = {"x": 1, "y": 2}  # dictionary
+
+print(type(a), a)
+print(type(b), b)
+print(type(c), c)
+print(type(d), d)
+print(type(e), e)
+print(type(f), f)
+print(type(g), g)
+
