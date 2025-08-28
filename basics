@@ -179,3 +179,84 @@ def recursive_sum(n):
 print("Sum of first 10 natural numbers:", recursive_sum(10))
 
 
+# -------------------------
+# Python Practice - Strings
+# -------------------------
+
+# 1. Reverse a string
+def reverse_string(s):
+    return s[::-1]
+
+print("Reversed:", reverse_string("farmer"))
+
+print("\n------------------")
+
+# 2. Check if string is palindrome
+def is_palindrome(s):
+    return s == s[::-1]
+
+print("Is 'madam' palindrome?", is_palindrome("madam"))
+print("Is 'python' palindrome?", is_palindrome("python"))
+
+print("\n------------------")
+
+# 3. Count vowels in a string
+def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
+
+print("Vowel count in 'Agriculture':", count_vowels("Agriculture"))
+
+print("\n------------------")
+
+# 4. Convert string to uppercase and lowercase
+s = "Farmers Are Strong"
+print("Upper:", s.upper())
+print("Lower:", s.lower())
+
+print("\n------------------")
+
+# 5. Replace word in string
+sentence = "Sugarcane is profitable"
+print("After replace:", sentence.replace("Sugarcane", "Wheat"))
+
+print("\n------------------")
+
+# 6. Split string into words
+text = "Crops need proper fertilizer"
+print("Split words:", text.split())
+
+print("\n------------------")
+
+# 7. Check if string contains only digits
+print("'12345'.isdigit():", "12345".isdigit())
+print("'Farm123'.isdigit():", "Farm123".isdigit())
+
+print("\n------------------")
+
+# 8. Remove spaces from string
+def remove_spaces(s):
+    return s.replace(" ", "")
+
+print("Without spaces:", remove_spaces("Crop Yield Data"))
+
+print("\n------------------")
+
+# 9. Find frequency of each character
+def char_frequency(s):
+    freq = {}
+    for char in s:
+        freq[char] = freq.get(char, 0) + 1
+    return freq
+
+print("Char frequency in 'banana':", char_frequency("banana"))
+
+print("\n------------------")
+
+# 10. Longest word in a sentence
+def longest_word(sentence):
+    words = sentence.split()
+    return max(words, key=len)
+
+print("Longest word:", longest_word("Farmers grow sugarcane and rice"))
+
