@@ -260,3 +260,75 @@ def longest_word(sentence):
 
 print("Longest word:", longest_word("Farmers grow sugarcane and rice"))
 
+
+# -------------------------
+# Python Practice - Lists
+# -------------------------
+
+# 1. Create a list and print it
+fruits = ["Mango", "Banana", "Apple", "Grapes"]
+print("Fruits List:", fruits)
+
+print("\n------------------")
+
+# 2. Access elements by index
+print("First fruit:", fruits[0])
+print("Last fruit:", fruits[-1])
+
+print("\n------------------")
+
+# 3. Append and extend a list
+vegetables = ["Potato", "Tomato"]
+fruits.append("Orange")
+fruits.extend(vegetables)
+print("After append & extend:", fruits)
+
+print("\n------------------")
+
+# 4. Insert and remove elements
+fruits.insert(2, "Papaya")
+fruits.remove("Tomato")
+print("After insert & remove:", fruits)
+
+print("\n------------------")
+
+# 5. Sorting and reversing
+numbers = [5, 2, 9, 1, 7]
+print("Original numbers:", numbers)
+numbers.sort()
+print("Sorted ascending:", numbers)
+numbers.sort(reverse=True)
+print("Sorted descending:", numbers)
+fruits.reverse()
+print("Fruits reversed:", fruits)
+
+print("\n------------------")
+
+# 6. List comprehension
+squares = [x**2 for x in range(1, 6)]
+print("Squares:", squares)
+
+even_numbers = [x for x in range(1, 11) if x % 2 == 0]
+print("Even numbers:", even_numbers)
+
+print("\n------------------")
+
+# 7. Find max, min, sum
+data = [10, 20, 30, 40, 50]
+print("Max:", max(data))
+print("Min:", min(data))
+print("Sum:", sum(data))
+
+print("\n------------------")
+
+# 8. Remove duplicates from list
+items = [1, 2, 2, 3, 4, 4, 5]
+unique_items = list(set(items))
+print("Unique items:", unique_items)
+
+print("\n------------------")
+
+# 9. Nested lists
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print("Matrix:", matrix)
+print("Element at [1][2]:", matrix[1][2]
