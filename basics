@@ -332,3 +332,78 @@ print("\n------------------")
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print("Matrix:", matrix)
 print("Element at [1][2]:", matrix[1][2]
+
+
+# -------------------------
+# Python Practice - Tuples
+# -------------------------
+
+# 1. Create a tuple and print it
+fruits = ("Mango", "Banana", "Apple", "Grapes")
+print("Fruits Tuple:", fruits)
+
+print("\n------------------")
+
+# 2. Access elements by index
+print("First fruit:", fruits[0])
+print("Last fruit:", fruits[-1])
+
+print("\n------------------")
+
+# 3. Tuple with different data types
+mixed = (1, "Hello", 3.5, True)
+print("Mixed Tuple:", mixed)
+
+print("\n------------------")
+
+# 4. Nested tuple
+nested = (1, (2, 3), (4, 5))
+print("Nested Tuple:", nested)
+print("Element [1][1]:", nested[1][1])
+
+print("\n------------------")
+
+# 5. Tuple unpacking
+numbers = (10, 20, 30)
+a, b, c = numbers
+print("Unpacked values:", a, b, c)
+
+print("\n------------------")
+
+# 6. Count and index
+nums = (1, 2, 3, 2, 4, 2)
+print("Count of 2:", nums.count(2))
+print("Index of 3:", nums.index(3))
+
+print("\n------------------")
+
+# 7. Tuple immutability demo
+immutable_example = (1, 2, 3)
+print("Original tuple:", immutable_example)
+# immutable_example[0] = 100  # ❌ This will give an error (uncomment to test)
+
+print("\n------------------")
+
+# 8. Converting between tuple and list
+sample_list = [1, 2, 3, 4]
+converted_tuple = tuple(sample_list)
+print("List to Tuple:", converted_tuple)
+
+sample_tuple = (5, 6, 7)
+converted_list = list(sample_tuple)
+converted_list.append(8)
+print("Tuple to List:", converted_list)
+
+print("\n------------------")
+
+# 9. Slicing in tuples
+letters = ("a", "b", "c", "d", "e")
+print("First 3 letters:", letters[:3])
+print("Last 2 letters:", letters[-2:])
+print("Middle slice:", letters[1:4])
+
+print("\n------------------")
+
+# 10. Tuple with repetition
+repeat_tuple = ("Python",) * 3
+print("Repeated Tuple:", repeat_tuple)
