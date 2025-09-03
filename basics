@@ -407,3 +407,77 @@ print("\n------------------")
 # 10. Tuple with repetition
 repeat_tuple = ("Python",) * 3
 print("Repeated Tuple:", repeat_tuple)
+
+
+# -------------------------
+# Python Practice - Sets
+# -------------------------
+
+# 1. Create a set
+fruits = {"Apple", "Banana", "Mango", "Orange"}
+print("Fruits Set:", fruits)
+
+print("\n------------------")
+
+# 2. No duplicate elements
+duplicates = {"Apple", "Apple", "Mango"}
+print("Set with duplicates removed:", duplicates)
+
+print("\n------------------")
+
+# 3. Add elements
+fruits.add("Grapes")
+print("After adding Grapes:", fruits)
+
+print("\n------------------")
+
+# 4. Update with multiple items
+fruits.update(["Pineapple", "Guava"])
+print("After updating with multiple fruits:", fruits)
+
+print("\n------------------")
+
+# 5. Remove elements
+fruits.remove("Banana")   # ❌ Error if not present
+print("After removing Banana:", fruits)
+
+fruits.discard("Papaya")  # ✅ No error if not present
+print("After discarding Papaya:", fruits)
+
+print("\n------------------")
+
+# 6. Set operations
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+print("Set A:", A)
+print("Set B:", B)
+print("Union:", A | B)
+print("Intersection:", A & B)
+print("Difference (A - B):", A - B)
+print("Symmetric Difference:", A ^ B)
+
+print("\n------------------")
+
+# 7. Membership test
+print("Is 3 in A?", 3 in A)
+print("Is 10 not in B?", 10 not in B)
+
+print("\n------------------")
+
+# 8. Iterating through set
+print("Iterating over fruits set:")
+for fruit in fruits:
+    print("-", fruit)
+
+print("\n------------------")
+
+# 9. Set length
+print("Number of fruits:", len(fruits))
+
+print("\n------------------")
+
+# 10. Frozen set (immutable set)
+frozen = frozenset([1, 2, 3, 4])
+print("Frozen Set:", frozen)
+# frozen.add(5)  # ❌ Error (frozen set cannot be modified)
