@@ -646,3 +646,74 @@ def factorial(n):
     return n * factorial(n-1)
 
 print("Factorial of 5:", factorial(5))
+
+# -------------------------
+# Python Practice - File Handling
+# -------------------------
+
+# 1. Writing to a file
+with open("sample.txt", "w") as f:
+    f.write("Hello, this is Aditya!\n")
+    f.write("Practicing Python file handling.\n")
+
+print("✅ Data written to sample.txt")
+
+print("\n------------------")
+
+# 2. Reading the entire file
+with open("sample.txt", "r") as f:
+    content = f.read()
+print("📖 File Content:\n", content)
+
+print("\n------------------")
+
+# 3. Reading line by line
+with open("sample.txt", "r") as f:
+    print("📖 Reading line by line:")
+    for line in f:
+        print(line.strip())
+
+print("\n------------------")
+
+# 4. Appending to a file
+with open("sample.txt", "a") as f:
+    f.write("This line is appended!\n")
+
+print("✅ Data appended to sample.txt")
+
+print("\n------------------")
+
+# 5. Read after append
+with open("sample.txt", "r") as f:
+    print("📖 Updated File Content:\n", f.read())
+
+print("\n------------------")
+
+# 6. Writing list of lines
+lines = ["Python is powerful.\n", "File handling is important.\n", "Keep practicing!\n"]
+with open("sample2.txt", "w") as f:
+    f.writelines(lines)
+
+print("✅ Multiple lines written to sample2.txt")
+
+print("\n------------------")
+
+# 7. Reading file into list
+with open("sample2.txt", "r") as f:
+    lines_read = f.readlines()
+print("📖 List of lines from sample2.txt:", lines_read)
+
+print("\n------------------")
+
+# 8. Using 'with' ensures auto-close
+def read_file(filename):
+    try:
+        with open(filename, "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        return "⚠️ File not found!"
+
+print(read_file("sample.txt"))
+print(read_file("not_exist.txt"))
+
+print("\n------------------
