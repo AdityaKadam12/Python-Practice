@@ -559,3 +559,90 @@ temp = {"a": 1, "b": 2}
 temp.clear()
 print("After clearing:", temp)
 
+
+# -------------------------
+# Python Practice - Functions
+# -------------------------
+
+# 1. Simple function
+def greet():
+    print("Hello, welcome to Python practice!")
+
+greet()
+
+print("\n------------------")
+
+# 2. Function with parameters
+def add(a, b):
+    return a + b
+
+print("Sum of 5 and 3:", add(5, 3))
+
+print("\n------------------")
+
+# 3. Function with default argument
+def power(base, exp=2):
+    return base ** exp
+
+print("Square of 4:", power(4))
+print("Cube of 2:", power(2, 3))
+
+print("\n------------------")
+
+# 4. Function with keyword arguments
+def student_info(name, age):
+    print(f"Name: {name}, Age: {age}")
+
+student_info(age=22, name="Aditya")
+
+print("\n------------------")
+
+# 5. Return multiple values
+def calculator(a, b):
+    return a+b, a-b, a*b, a/b
+
+add_, sub_, mul_, div_ = calculator(10, 5)
+print("Calculator results:", add_, sub_, mul_, div_)
+
+print("\n------------------")
+
+# 6. Variable-length arguments (*args)
+def total_sum(*numbers):
+    return sum(numbers)
+
+print("Sum of multiple numbers:", total_sum(2, 3, 4, 5))
+
+print("\n------------------")
+
+# 7. Variable-length keyword arguments (**kwargs)
+def display_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+display_info(name="Aditya", course="Data Science", city="Karad")
+
+print("\n------------------")
+
+# 8. Lambda functions
+square = lambda x: x**2
+print("Square using lambda:", square(6))
+
+print("\n------------------")
+
+# 9. Function inside function (nested function)
+def outer():
+    def inner():
+        return "Inner function says Hello!"
+    return inner()
+
+print(outer())
+
+print("\n------------------")
+
+# 10. Recursive function (factorial)
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n-1)
+
+print("Factorial of 5:", factorial(5))
