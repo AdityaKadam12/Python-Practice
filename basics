@@ -713,6 +713,162 @@ def read_file(filename):
     except FileNotFoundError:
         return "⚠️ File not found!"
 
+
+# -------------------------
+# Python Practice - OOP (Classes & Objects)
+# -------------------------
+
+# 1. Basic Class & Object
+class Car:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def display_info(self):
+        return f"🚗 Car: {self.brand} {self.model}"
+
+car1 = Car("BMW", "X5")
+car2 = Car("Tesla", "Model 3")
+
+print(car1.display_info())
+print(car2.display_info())
+
+print("\n------------------")
+
+# 2. Inheritance
+class ElectricCar(Car):
+    def __init__(self, brand, model, battery_capacity):
+        super().__init__(brand, model)
+        self.battery_capacity = battery_capacity
+
+    def display_info(self):
+        return f"⚡ Electric Car: {self.brand} {self.model}, Battery: {self.battery_capacity} kWh"
+
+e_car = ElectricCar("Tesla", "Model S", 100)
+print(e_car.display_info())
+
+print("\n------------------")
+
+# 3. Encapsulation (Private Variable)
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance   # private
+
+    def deposit(self, amount):
+        self.__balance += amount
+        return f"💰 Deposited {amount}, New Balance: {self.__balance}"
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+            return f"💸 Withdrawn {amount}, Remaining Balance: {self.__balance}"
+        else:
+            return "⚠️ Insufficient Balance!"
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Aditya", 5000)
+print(account.deposit(2000))
+print(account.withdraw(1000))
+print("Current Balance:", account.get_balance())
+
+print("\n------------------")
+
+# 4. Polymorphism (Method Overriding)
+class Animal:
+    def sound(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def sound(self):
+        return "🐶 Woof!"
+
+class Cat(Animal):
+    def sound(self):
+        return "🐱 Meow!"
+
+animals = [Dog(), Cat(), Animal()]
+for a in animals:
+    print(a.sound())
+
+print("\n------------------")
+
+# 5. Class vs Static Methods
+class MathOperations:
+    def __init__(self, number):
+        self.number = number
+
+    def square(self):
+        return self.number ** 2
+
+    @classmethod
+    def add(cls, a, b):
+        return a + b
+
+    @staticmethod
+    def greet():
+        return "👋 Welcome to Math Operations"
+
+m = MathOperations(5)
+print("Square:", m.square())
+print("Addition:", MathOperations.add(10, 20))
+print(MathOperations.greet())
+
+print("\n------------------")
+
+# 6. Operator Overloading
+class Book:
+    def __init__(self, pages):
+        self.pages = pages
+
+    def __add__(self, other):
+        return self.pages + other.pages
+
+book1 = Book(100)
+book2 = Book(200)
+print("📚 Total Pages:", book1 + book2)
+
+print("\n------------------")
+
+# 7. Abstract Class
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+circle = Circle(7)
+print("⭕ Circle Area:", circle.area())
+
+print("\n------------------")
+
+# 8. Multiple Inheritance
+class Father:
+    def skills(self):
+        return "Driving, Farming"
+
+class Mother:
+    def skills(self):
+        return "Cooking, Teaching"
+
+class Child(Father, Mother):
+    def skills(self):
+        return f"Child skills: {Father.skills(self)} + {Mother.skills(self)} + Coding"
+
+c = Child()
+print(c.skills())
+
+
 print(read_file("sample.txt"))
 print(read_file("not_exist.txt"))
 
