@@ -873,3 +873,130 @@ print(read_file("sample.txt"))
 print(read_file("not_exist.txt"))
 
 print("\n------------------
+
+
+# -------------------------
+# Python Practice - Exception Handling & Modules
+# -------------------------
+
+# 1. Basic Exception Handling
+try:
+    num = int(input("Enter a number: "))
+    print("✅ Square:", num ** 2)
+except ValueError:
+    print("⚠️ Please enter a valid number.")
+
+print("\n------------------")
+
+# 2. Multiple Exceptions
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+    result = a / b
+    print("✅ Result:", result)
+except ZeroDivisionError:
+    print("⚠️ Denominator cannot be zero!")
+except ValueError:
+    print("⚠️ Please enter only numbers.")
+
+print("\n------------------")
+
+# 3. Finally Block
+try:
+    file = open("example.txt", "w")
+    file.write("Hello, Python!")
+except Exception as e:
+    print("⚠️ Error:", e)
+finally:
+    file.close()
+    print("📂 File closed successfully.")
+
+print("\n------------------")
+
+# 4. Raise Custom Exception
+def withdraw(balance, amount):
+    if amount > balance:
+        raise ValueError("⚠️ Insufficient Balance!")
+    return balance - amount
+
+try:
+    print("Remaining Balance:", withdraw(1000, 1500))
+except ValueError as e:
+    print("❌ Error:", e)
+
+print("\n------------------")
+
+# 5. User-Defined Exception
+class TooYoungException(Exception):
+    pass
+
+class TooOldException(Exception):
+    pass
+
+def check_age(age):
+    if age < 18:
+        raise TooYoungException("⚠️ You are too young to vote.")
+    elif age > 100:
+        raise TooOldException("⚠️ Age not valid for voting.")
+    else:
+        return "✅ You are eligible to vote."
+
+try:
+    print(check_age(15))
+except (TooYoungException, TooOldException) as e:
+    print("❌ Error:", e)
+
+print("\n------------------")
+
+# -------------------------
+# Python Modules
+# -------------------------
+
+# 6. Import Built-in Modules
+import math, random, datetime
+
+print("🧮 Square root of 16:", math.sqrt(16))
+print("🎲 Random number (1-100):", random.randint(1, 100))
+print("📅 Current Date & Time:", datetime.datetime.now())
+
+print("\n------------------")
+
+# 7. Using Aliases
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+print("🔢 Numpy Array:", arr)
+
+print("\n------------------")
+
+# 8. Creating & Importing Custom Module
+# Save below code in a file named `mymodule.py` in same folder
+# def greet(name):
+#     return f"👋 Hello, {name}! Welcome to Python Modules."
+
+import mymodule
+print(mymodule.greet("Aditya"))
+
+print("\n------------------")
+
+# 9. Using 'from' import
+from math import factorial
+print("💡 Factorial of 5:", factorial(5))
+
+print("\n------------------")
+
+# 10. Package Example (folder with __init__.py)
+# project/
+#   ├── mypackage/
+#   │      ├── __init__.py
+#   │      ├── add.py
+#   │      └── subtract.py
+#   └── main.py
+#
+# add.py → def add(a, b): return a + b
+# subtract.py → def subtract(a, b): return a - b
+#
+# main.py example:
+# from mypackage import add, subtract
+# print(add.add(5, 3))
+# print(subtract.subtract(10, 4))
