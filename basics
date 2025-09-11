@@ -1121,3 +1121,205 @@ if os.path.exists("sample.txt"):
     print("🗑️ 'sample.txt' deleted.")
 else:
     print("⚠️ File does not exist.")
+
+
+# -------------------------
+# Python Practice - Functions & OOP
+# -------------------------
+
+# 1. Simple Function
+def greet(name):
+    return f"Hello {name}, welcome to Python Practice! 🌱"
+
+print(greet("Aditya"))
+
+print("\n------------------")
+
+# 2. Function with Default Argument
+def area_circle(radius, pi=3.14):
+    return pi * radius * radius
+
+print("🔵 Area of Circle:", area_circle(5))
+print("🔵 Area with custom pi:", area_circle(5, 3.14159))
+
+print("\n------------------")
+
+# 3. Function with Multiple Arguments
+def farmer_info(name, crop, acres):
+    return f"👨‍🌾 Farmer {name} grows {crop} on {acres} acres."
+
+print(farmer_info("Aditya", "Sugarcane", 2.5))
+
+print("\n------------------")
+
+# 4. Function with *args
+def add_numbers(*args):
+    return sum(args)
+
+print("➕ Sum:", add_numbers(10, 20, 30, 40))
+
+print("\n------------------")
+
+# 5. Function with **kwargs
+def farm_details(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+farm_details(name="Aditya", crop="Rice", soil="Black Soil")
+
+print("\n==================")
+# 📘 OOPS PRACTICE
+print("📘 PRACTICING OBJECT ORIENTED PROGRAMMING")
+print("==================\n")
+
+# 6. Simple Class
+class Farmer:
+    def __init__(self, name, crop):
+        self.name = name
+        self.crop = crop
+    
+    def show_details(self):
+        return f"👨‍🌾 {self.name} grows {self.crop}"
+
+farmer1 = Farmer("Aditya", "Sugarcane")
+print(farmer1.show_details())
+
+print("\n------------------")
+
+# 7. Class with Methods
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+    
+    def deposit(self, amount):
+        self.balance += amount
+        return f"💰 {amount} deposited. New Balance = {self.balance}"
+    
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            return f"💸 {amount} withdrawn. Remaining Balance = {self.balance}"
+        else:
+            return "⚠️ Insufficient balance!"
+
+account = BankAccount("Aditya", 1000)
+print(account.deposit(500))
+print(account.withdraw(300))
+print(account.withdraw(2000))
+
+print("\n------------------")
+
+# 8. Inheritance
+class Animal:
+    def sound(self):
+        return "Some sound"
+
+class Cow(Animal):
+    def sound(self):
+        return "🐄 Moo Moo"
+
+class Dog(Animal):
+    def sound(self):
+        return "🐶 Woof Woof"
+
+cow = Cow()
+dog = Dog()
+print("Cow Sound:", cow.sound())
+print("Dog Sound:", dog.sound())
+
+print("\n------------------")
+
+# 9. Polymorphism
+for animal in [Cow(), Dog()]:
+    print(animal.sound())
+
+print("\n------------------")
+
+# 10. Encapsulation
+class Crop:
+    def __init__(self, name):
+        self.__name = name  # private variable
+    
+    def get_crop(self):
+        return f"🌾 Crop: {self.__name}"
+
+crop1 = Crop("Wheat")
+print(crop1.get_crop())
+
+print("\n------------------")
+
+# 11. Static Method
+class MathUtils:
+    @staticmethod
+    def square(x):
+        return x * x
+
+print("📐 Square of 6:", MathUtils.square(6))
+
+print("\n------------------")
+
+# 12. Class Variables
+class Farm:
+    total_farms = 0
+    
+    def __init__(self, name):
+        self.name = name
+        Farm.total_farms += 1
+
+farm1 = Farm("GreenLand")
+farm2 = Farm("AgroFarm")
+print("🏡 Total Farms:", Farm.total_farms)
+
+print("\n------------------")
+
+# 13. Operator Overloading
+class Box:
+    def __init__(self, value):
+        self.value = value
+    
+    def __add__(self, other):
+        return Box(self.value + other.value)
+    
+    def __str__(self):
+        return f"📦 Box Value: {self.value}"
+
+b1 = Box(10)
+b2 = Box(20)
+b3 = b1 + b2
+print(b3)
+
+print("\n------------------")
+
+# 14. Abstract Class
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def move(self):
+        pass
+
+class Tractor(Vehicle):
+    def move(self):
+        return "🚜 Tractor is moving"
+
+tractor = Tractor()
+print(tractor.move())
+
+print("\n------------------")
+
+# 15. Multiple Inheritance
+class A:
+    def featureA(self):
+        return "Feature A"
+
+class B:
+    def featureB(self):
+        return "Feature B"
+
+class C(A, B):
+    def featureC(self):
+        return "Feature C"
+
+obj = C()
+print(obj.featureA(), obj.featureB(), obj.featureC())
