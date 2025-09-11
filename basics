@@ -1000,3 +1000,124 @@ print("\n------------------")
 # from mypackage import add, subtract
 # print(add.add(5, 3))
 # print(subtract.subtract(10, 4))
+
+
+# -------------------------
+# Python Practice - File Handling & Data Structures
+# -------------------------
+
+# 1. Writing to a File
+with open("sample.txt", "w") as f:
+    f.write("Hello Farmers 🌱\n")
+    f.write("This is a Python file handling practice.\n")
+print("✅ File 'sample.txt' created and written.")
+
+print("\n------------------")
+
+# 2. Reading from a File
+with open("sample.txt", "r") as f:
+    content = f.read()
+print("📂 File Content:\n", content)
+
+print("\n------------------")
+
+# 3. Reading Line by Line
+with open("sample.txt", "r") as f:
+    for line in f:
+        print("➡️", line.strip())
+
+print("\n------------------")
+
+# 4. Appending to a File
+with open("sample.txt", "a") as f:
+    f.write("Adding more data...\n")
+print("✍️ Data appended successfully.")
+
+print("\n------------------")
+
+# 5. File Exception Handling
+try:
+    with open("nofile.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("⚠️ File not found!")
+
+print("\n==================")
+# 📘 DATA STRUCTURES
+print("📘 PRACTICING DATA STRUCTURES")
+print("==================\n")
+
+# 6. Lists
+fruits = ["Mango", "Banana", "Apple"]
+fruits.append("Orange")
+print("🍎 Fruits List:", fruits)
+
+print("\n------------------")
+
+# 7. Tuples (Immutable)
+colors = ("Red", "Green", "Blue")
+print("🎨 Colors Tuple:", colors)
+print("First Color:", colors[0])
+
+print("\n------------------")
+
+# 8. Sets (Unique Values)
+numbers = {1, 2, 2, 3, 4, 5}
+print("🔢 Numbers Set:", numbers)
+
+print("\n------------------")
+
+# 9. Dictionary
+farmer = {"name": "Aditya", "crop": "Sugarcane", "soil": "Black"}
+print("👨‍🌾 Farmer Dictionary:", farmer)
+print("Crop:", farmer["crop"])
+
+print("\n------------------")
+
+# 10. Nested Data Structures
+farm_data = {
+    "farmer": "Aditya",
+    "fields": [
+        {"crop": "Wheat", "area": "2 acres"},
+        {"crop": "Rice", "area": "1.5 acres"}
+    ]
+}
+print("🌾 Farm Data:", farm_data)
+
+print("\n------------------")
+
+# 11. Dictionary Methods
+print("All Keys:", farmer.keys())
+print("All Values:", farmer.values())
+
+print("\n------------------")
+
+# 12. List Comprehension
+squares = [x**2 for x in range(1, 6)]
+print("📐 Squares:", squares)
+
+print("\n------------------")
+
+# 13. Set Operations
+set_a = {1, 2, 3}
+set_b = {3, 4, 5}
+print("Union:", set_a | set_b)
+print("Intersection:", set_a & set_b)
+
+print("\n------------------")
+
+# 14. Dictionary Comprehension
+crops = ["Wheat", "Rice", "Sugarcane"]
+prices = [2000, 3000, 3500]
+crop_price = {c: p for c, p in zip(crops, prices)}
+print("💰 Crop Price Dictionary:", crop_price)
+
+print("\n------------------")
+
+# 15. Deleting Files
+import os
+if os.path.exists("sample.txt"):
+    os.remove("sample.txt")
+    print("🗑️ 'sample.txt' deleted.")
+else:
+    print("⚠️ File does not exist.")
