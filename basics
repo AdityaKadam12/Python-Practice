@@ -1323,3 +1323,237 @@ class C(A, B):
 
 obj = C()
 print(obj.featureA(), obj.featureB(), obj.featureC())
+
+
+
+# -------------------------
+# Python Practice - Modules, Libraries & Exception Handling
+# -------------------------
+
+import math
+import random
+import datetime
+
+print("📘 MODULES, LIBRARIES & EXCEPTION HANDLING PRACTICE")
+print("====================================================\n")
+
+# 1. Using math module
+print("🔢 Math Module Examples:")
+print("Square root of 16:", math.sqrt(16))
+print("Factorial of 5:", math.factorial(5))
+print("Power 2^3:", math.pow(2, 3))
+print("Pi value:", math.pi)
+
+print("\n------------------")
+
+# 2. Using random module
+print("🎲 Random Module Examples:")
+print("Random integer (1-10):", random.randint(1, 10))
+print("Random float (0-1):", random.random())
+print("Random choice:", random.choice(['Wheat', 'Rice', 'Sugarcane']))
+
+print("\n------------------")
+
+# 3. Using datetime module
+today = datetime.date.today()
+now = datetime.datetime.now()
+print("📅 Today's Date:", today)
+print("⏰ Current Time:", now.strftime("%H:%M:%S"))
+
+print("\n------------------")
+
+# 4. Importing specific functions
+from math import ceil, floor
+print("Ceil of 7.4:", ceil(7.4))
+print("Floor of 7.4:", floor(7.4))
+
+print("\n==================")
+# 📘 EXCEPTION HANDLING
+print("📘 PRACTICING EXCEPTION HANDLING")
+print("==================\n")
+
+# 5. Basic try-except
+try:
+    x = int("Hello")
+except ValueError:
+    print("⚠️ ValueError: Cannot convert string to int")
+
+print("\n------------------")
+
+# 6. Handling multiple exceptions
+try:
+    num = 10 / 0
+except ZeroDivisionError:
+    print("⚠️ Cannot divide by zero")
+except Exception as e:
+    print("⚠️ Error:", e)
+
+print("\n------------------")
+
+# 7. Try-Except-Finally
+try:
+    f = open("sample.txt", "r")
+    print(f.read())
+except FileNotFoundError:
+    print("⚠️ File not found")
+finally:
+    print("✅ File handling completed")
+
+print("\n------------------")
+
+# 8. Custom Exception
+class LowBalanceError(Exception):
+    pass
+
+def withdraw(balance, amount):
+    if amount > balance:
+        raise LowBalanceError("⚠️ Not enough balance!")
+    return balance - amount
+
+try:
+    print("Remaining balance:", withdraw(1000, 1500))
+except LowBalanceError as e:
+    print(e)
+
+print("\n------------------")
+
+# 9. Else block in exception
+try:
+    result = 20 / 5
+except ZeroDivisionError:
+    print("⚠️ Division by zero")
+else:
+    print("✅ Division successful:", result)
+
+print("\n------------------")
+
+# 10. Using assert
+def check_age(age):
+    assert age >= 18, "⚠️ Age must be 18 or older"
+    return "✅ You are eligible"
+
+try:
+    print(check_age(16))
+except AssertionError as e:
+    print(e)
+
+print("\n------------------")
+
+# 11. Using pass in exception
+try:
+    num = int("Python")
+except ValueError:
+    pass  # ignore error
+print("Program continues smoothly ✅")
+
+print("\n------------------")
+
+# 12. Exception inside loop
+numbers = [10, 0, 5]
+for n in numbers:
+    try:
+        print("100 /", n, "=", 100/n)
+    except ZeroDivisionError:
+        print("⚠️ Skipped division by zero")
+
+
+# -------------------------
+# Python Practice - File Handling
+# -------------------------
+
+print("📘 FILE HANDLING PRACTICE")
+print("==========================\n")
+
+# 1. Writing to a file
+with open("sample.txt", "w") as f:
+    f.write("Hello Farmers!\n")
+    f.write("This is a fertilizer recommendation practice file.\n")
+print("✅ File 'sample.txt' created and written.")
+
+print("\n------------------")
+
+# 2. Reading from a file
+with open("sample.txt", "r") as f:
+    content = f.read()
+print("📖 File Content:\n", content)
+
+print("\n------------------")
+
+# 3. Reading line by line
+with open("sample.txt", "r") as f:
+    print("📖 Reading line by line:")
+    for line in f:
+        print(line.strip())
+
+print("\n------------------")
+
+# 4. Appending to a file
+with open("sample.txt", "a") as f:
+    f.write("Adding more fertilizer data...\n")
+print("✅ Data appended to 'sample.txt'")
+
+print("\n------------------")
+
+# 5. Read after append
+with open("sample.txt", "r") as f:
+    print("📖 Updated File Content:\n", f.read())
+
+print("\n------------------")
+
+# 6. Writing multiple lines
+lines = ["Nitrogen improves leaf growth\n", "Phosphorus supports roots\n", "Potassium improves fruit quality\n"]
+with open("nutrients.txt", "w") as f:
+    f.writelines(lines)
+print("✅ Multiple lines written to 'nutrients.txt'")
+
+print("\n------------------")
+
+# 7. Reading multiple lines
+with open("nutrients.txt", "r") as f:
+    print("📖 Nutrients File Content:")
+    for line in f.readlines():
+        print(line.strip())
+
+print("\n------------------")
+
+# 8. File pointer usage (tell & seek)
+with open("sample.txt", "r") as f:
+    print("🔎 File pointer position:", f.tell())
+    print("First 5 characters:", f.read(5))
+    print("🔎 File pointer after read:", f.tell())
+    f.seek(0)
+    print("📖 After reset with seek():", f.read(10))
+
+print("\n------------------")
+
+# 9. Handling file not found error
+try:
+    with open("missing.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("⚠️ File 'missing.txt' not found")
+
+print("\n------------------")
+
+# 10. Using with block for auto close
+with open("auto.txt", "w") as f:
+    f.write("This file will auto close.")
+print("✅ 'auto.txt' created using with block")
+
+print("\n------------------")
+
+# 11. Copy content from one file to another
+with open("sample.txt", "r") as f1, open("copy_sample.txt", "w") as f2:
+    for line in f1:
+        f2.write(line)
+print("✅ File copied to 'copy_sample.txt'")
+
+print("\n------------------")
+
+# 12. Delete a file
+import os
+if os.path.exists("auto.txt"):
+    os.remove("auto.txt")
+    print("🗑️ 'auto.txt' deleted")
+else:
+    print("⚠️ File not found for deletion")
