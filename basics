@@ -1557,3 +1557,154 @@ if os.path.exists("auto.txt"):
     print("🗑️ 'auto.txt' deleted")
 else:
     print("⚠️ File not found for deletion")
+
+
+
+# -------------------------
+# Python Practice - OOP (Object Oriented Programming)
+# -------------------------
+
+print("🎓 OOP PRACTICE")
+print("==========================\n")
+
+# 1. Simple Class & Object
+class Farmer:
+    def __init__(self, name, crop):
+        self.name = name
+        self.crop = crop
+
+    def details(self):
+        return f"👨‍🌾 Farmer {self.name} grows {self.crop}."
+
+farmer1 = Farmer("Aditya", "Sugarcane")
+print(farmer1.details())
+
+print("\n------------------")
+
+# 2. Class Variables vs Instance Variables
+class Farm:
+    location = "Maharashtra"  # class variable
+
+    def __init__(self, owner, size):
+        self.owner = owner
+        self.size = size  # instance variable
+
+farm1 = Farm("Aditya", "10 acres")
+farm2 = Farm("Ramesh", "5 acres")
+print(f"{farm1.owner} → {farm1.size}, Location: {farm1.location}")
+print(f"{farm2.owner} → {farm2.size}, Location: {farm2.location}")
+
+print("\n------------------")
+
+# 3. Inheritance
+class Crop:
+    def grow(self):
+        return "🌱 Crop is growing."
+
+class Wheat(Crop):
+    def grow(self):
+        return "🌾 Wheat is growing fast."
+
+c = Wheat()
+print(c.grow())
+
+print("\n------------------")
+
+# 4. Multiple Inheritance
+class Soil:
+    def soil_info(self):
+        return "🪨 Soil contains nutrients."
+
+class Weather:
+    def weather_info(self):
+        return "☀️ Weather is sunny."
+
+class FarmSystem(Soil, Weather):
+    pass
+
+fs = FarmSystem()
+print(fs.soil_info())
+print(fs.weather_info())
+
+print("\n------------------")
+
+# 5. Polymorphism
+class Cow:
+    def sound(self):
+        return "🐄 Moo"
+
+class Dog:
+    def sound(self):
+        return "🐕 Bark"
+
+for animal in (Cow(), Dog()):
+    print(animal.sound())
+
+print("\n------------------")
+
+# 6. Encapsulation
+class Account:
+    def __init__(self, balance):
+        self.__balance = balance  # private variable
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+acc = Account(1000)
+acc.deposit(500)
+print(f"💰 Account Balance: {acc.get_balance()}")
+
+print("\n------------------")
+
+# 7. Abstraction using Abstract Class
+from abc import ABC, abstractmethod
+
+class Machine(ABC):
+    @abstractmethod
+    def operate(self):
+        pass
+
+class Tractor(Machine):
+    def operate(self):
+        return "🚜 Tractor is plowing the field."
+
+tractor = Tractor()
+print(tractor.operate())
+
+print("\n------------------")
+
+# 8. Method Overloading (Python way using default args)
+class Calculator:
+    def add(self, a, b=0, c=0):
+        return a + b + c
+
+calc = Calculator()
+print("Add 2 numbers:", calc.add(5, 10))
+print("Add 3 numbers:", calc.add(5, 10, 15))
+
+print("\n------------------")
+
+# 9. Method Overriding
+class Fertilizer:
+    def info(self):
+        return "🌿 General fertilizer info"
+
+class OrganicFertilizer(Fertilizer):
+    def info(self):
+        return "🍀 Organic fertilizer improves soil health"
+
+f = OrganicFertilizer()
+print(f.info())
+
+print("\n------------------")
+
+# 10. Static Method
+class Helper:
+    @staticmethod
+    def greet():
+        return "🙏 Welcome to Farmer's Portal"
+
+print(Helper.greet())
