@@ -1708,3 +1708,123 @@ class Helper:
         return "🙏 Welcome to Farmer's Portal"
 
 print(Helper.greet())
+
+
+
+# -------------------------
+# Python Practice - Exception Handling
+# -------------------------
+
+print("⚡ EXCEPTION HANDLING PRACTICE")
+print("==============================\n")
+
+# 1. Basic try-except
+try:
+    x = int("abc")  # invalid conversion
+except ValueError:
+    print("❌ Error: Cannot convert string to integer")
+
+print("\n------------------")
+
+# 2. Multiple except blocks
+try:
+    a, b = 10, 0
+    result = a / b
+except ZeroDivisionError:
+    print("❌ Division by zero is not allowed")
+except TypeError:
+    print("❌ Type mismatch error")
+
+print("\n------------------")
+
+# 3. Try-Except-Else
+try:
+    num = 25 / 5
+except ZeroDivisionError:
+    print("❌ Cannot divide by zero")
+else:
+    print("✅ Division successful, Result:", num)
+
+print("\n------------------")
+
+# 4. Try-Except-Finally
+try:
+    file = open("sample.txt", "w")
+    file.write("Hello Farmers")
+except IOError:
+    print("❌ File operation failed")
+finally:
+    file.close()
+    print("📂 File closed safely")
+
+print("\n------------------")
+
+# 5. Raising an Exception
+def check_nitrogen(n):
+    if n < 0:
+        raise ValueError("❌ Nitrogen value cannot be negative")
+    else:
+        return f"✅ Nitrogen value is {n}"
+
+try:
+    print(check_nitrogen(-10))
+except ValueError as e:
+    print(e)
+
+print("\n------------------")
+
+# 6. Custom Exception
+class LowPhosphorusError(Exception):
+    pass
+
+def check_phosphorus(p):
+    if p < 20:
+        raise LowPhosphorusError("⚠️ Phosphorus level too low for crops")
+    return "✅ Phosphorus level is good"
+
+try:
+    print(check_phosphorus(10))
+except LowPhosphorusError as e:
+    print(e)
+
+print("\n------------------")
+
+# 7. Handling Multiple Errors Together
+try:
+    data = [1, 2, 3]
+    print(data[5])  # IndexError
+    print(10 / 0)   # ZeroDivisionError
+except (IndexError, ZeroDivisionError) as e:
+    print("❌ Error occurred:", e)
+
+print("\n------------------")
+
+# 8. Using assert for validation
+try:
+    crop = "Wheat"
+    assert crop == "Rice", "❌ Only Rice crop is allowed"
+except AssertionError as e:
+    print(e)
+
+print("\n------------------")
+
+# 9. Nested try-except
+try:
+    try:
+        val = int("abc")
+    except ValueError:
+        print("❌ Inner block: invalid conversion")
+    finally:
+        print("🔒 Inner finally always runs")
+except Exception:
+    print("❌ Outer block caught an error")
+
+print("\n------------------")
+
+# 10. Exception handling in loops
+numbers = [10, 0, 5, "x"]
+for n in numbers:
+    try:
+        print("Result:", 100 / int(n))
+    except Exception as e:
+        print("❌ Error:", e)
