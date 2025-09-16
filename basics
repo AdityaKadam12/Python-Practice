@@ -1828,3 +1828,21 @@ for n in numbers:
         print("Result:", 100 / int(n))
     except Exception as e:
         print("❌ Error:", e)
+
+
+
+# Program 17: Find Factorial of a Number using Recursion
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# Input from user
+num = int(input("Enter a number: "))
+
+if num < 0:
+    print("Factorial does not exist for negative numbers.")
+else:
+    print(f"Factorial of {num} is {factorial(num)}")
