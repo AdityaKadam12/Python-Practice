@@ -1922,3 +1922,34 @@ for i in range(num):
 
 
 
+# Program 22: Factorial using Recursion
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Input from user
+num = int(input("Enter a number: "))
+
+print(f"Factorial of {num} is {factorial(num)}")
+
+
+
+
+# Program 23: Reverse a Number using Recursion
+
+def reverse_number(n, rev=0):
+    if n == 0:
+        return rev
+    else:
+        return reverse_number(n // 10, rev * 10 + n % 10)
+
+# Input from user
+num = int(input("Enter a number: "))
+reversed_num = reverse_number(num)
+
+print(f"Reversed number of {num} is {reversed_num}")
+
+
