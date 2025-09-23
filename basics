@@ -1953,3 +1953,37 @@ reversed_num = reverse_number(num)
 print(f"Reversed number of {num} is {reversed_num}")
 
 
+
+# Program 24: Sum of Digits using Recursion
+
+def sum_of_digits(n):
+    if n == 0:
+        return 0
+    else:
+        return (n % 10) + sum_of_digits(n // 10)
+
+# Input from user
+num = int(input("Enter a number: "))
+result = sum_of_digits(num)
+
+print(f"Sum of digits of {num} is {result}")
+
+
+
+# Program 25: Factorial using Recursion
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Input from user
+num = int(input("Enter a number: "))
+
+if num < 0:
+    print("❌ Factorial does not exist for negative numbers.")
+else:
+    result = factorial(num)
+    print(f"Factorial of {num} is {result}")
+
