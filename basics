@@ -1987,3 +1987,42 @@ else:
     result = factorial(num)
     print(f"Factorial of {num} is {result}")
 
+
+
+# Program 26: Fibonacci Series using Recursion
+
+def fibonacci(n):
+    if n <= 0:
+        return "Invalid input"
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Input from user
+terms = int(input("Enter number of terms: "))
+
+if terms <= 0:
+    print("❌ Please enter a positive integer.")
+else:
+    print(f"Fibonacci series with {terms} terms:")
+    for i in range(1, terms + 1):
+        print(fibonacci(i), end=" ")
+
+
+
+# Program 27: Find GCD (Greatest Common Divisor) using Recursion
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+# Input from user
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+print(f"GCD of {num1} and {num2} is: {gcd(num1, num2)}")
